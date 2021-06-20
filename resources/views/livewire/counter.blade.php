@@ -4,8 +4,10 @@
     <button wire:click="decrement">+</button>
 
     @foreach($field as $f)
-        <input class="form-control" name="field" value="" placeholder="field">
-        <span wire:click="increaseField" class="bg-success p-2">+</span>
-        <span wire:click="decreaseField({{ $step + 1 }})" class="bg-danger p-2">-</span>
+        <div wire:key="{{ $f }}">
+            <input class="form-control" name="field" value="" placeholder="field">
+            <span wire:click="increaseField" class="bg-success p-2">+</span>
+            <span wire:click="decreaseField({{ $f }})" class="bg-danger p-2">-</span>
+        </div>
     @endforeach
 </div>
